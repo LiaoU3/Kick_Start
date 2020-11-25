@@ -3,19 +3,22 @@ case = 0
 for _ in range(T):
     case += 1
     N = int(input())
-    citation = input()
-    citations = [int(num) for num in citation.split()]
+    As = input()
+    citations = [int(num) for num in As.split()]
 
-    score = 0
+    point = 0
+    scores = [0]*N
     print("Case #{}: ".format(case), end = "")
     for i in range(len(citations)):
-        cnt = 0
-        for j in range(i+1):
-            if citations[j] > score:
-                cnt += 1
-        if cnt > score :
-            score += 1
-        if i != len(citations) - 1:
-            print(score, end = " ")
+        if citations[i] > len(citations):
+            for j in range(len(scores)):
+                scores[j] += 1
         else :
-            print(score)
+            for j in range(citations[i]):
+                scores[j] += 1
+        if scores[point] > point :
+            point += 1
+        if i != len(citations) - 1:
+            print(point, end = " ")
+        else :
+            print(point)
